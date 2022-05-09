@@ -1,5 +1,5 @@
 class Parcel
-  attr_reader :length, :width, :weight
+  attr_reader :length, :width, :weight, :id
   @@parcels = {}
   @@total_rows = 0
 
@@ -22,6 +22,10 @@ class Parcel
     @length = length
     @width = width
     @weight = weight
+  end
+
+  def ==(parcel_to_compare)
+    self.id() == parcel_to_compare.id()
   end
 
   def save
