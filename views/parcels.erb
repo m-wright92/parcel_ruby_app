@@ -1,0 +1,23 @@
+<h1>Parcel storage</h1>
+
+<h3>Here are all of your parcels:</h3>
+
+<form action="/parcels">
+  <div class="form-group">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="number">
+  </div>
+  <button type="submit" class="btn">Go!</button>
+</form>
+
+<% if @parcels.any? %>
+  <ul>
+  <% parcels.each do |parcel| %>
+    <li><a href="/parcels/<%= parcel.id %>"><%= parcel.id %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You don't currently have any parcels to display.</p>
+<% end %>
+
+<a href="/parcels/new">Add a new parcel</a>
